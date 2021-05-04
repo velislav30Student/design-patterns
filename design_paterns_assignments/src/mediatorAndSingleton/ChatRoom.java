@@ -50,7 +50,7 @@ public class ChatRoom implements MessageMediator {
 		List<String> commandParameters = Arrays.asList(command.split(" "));
 		switch (commandParameters.get(0)) {
 		case "/help":
-			System.out.println("Here's a list of available commands: /n"
+			System.out.println("Here's a list of available commands:\n"
 					+ "- addBot\n"
 					+ "- help\n"
 					+ "- banWord word\n"
@@ -62,35 +62,55 @@ public class ChatRoom implements MessageMediator {
 			ExecuteAddBotCommand();
 			break;
 		case "/banWord":
-			if(commandParameters.size()<2) {
-				user.receive("Example: /banWord word");
+			if(monitorBot != null) {
+				if(commandParameters.size()<2) {
+					user.receive("Example: /banWord word");
+				}
+				else {
+					ExecuteBanWordCommand(commandParameters.get(1));
+				}
 			}
 			else {
-				ExecuteBanWordCommand(commandParameters.get(1));
+				user.receive("You need to add a monitoring bot first.");
 			}
 			break;
 		case "/unbanWord":
-			if(commandParameters.size()<2) {
-				user.receive("Example: /unbanWord word");
+			if(monitorBot != null) {
+				if(commandParameters.size()<2) {
+					user.receive("Example: /unbanWord word");
+				}
+				else {
+					ExecuteUnbanWordCommand(commandParameters.get(1));
+				}
 			}
 			else {
-				ExecuteUnbanWordCommand(commandParameters.get(1));
+				user.receive("You need to add a monitoring bot first.");
 			}
 			break;
 		case "/censoreWord":
-			if(commandParameters.size()<2) {
-				user.receive("Example: /censoreWord word");
+			if(monitorBot != null) {
+				if(commandParameters.size()<2) {
+					user.receive("Example: /censoreWord word");
+				}
+				else {
+					ExecuteCensoreWordCommand(commandParameters.get(1));
+				}
 			}
 			else {
-				ExecuteCensoreWordCommand(commandParameters.get(1));
+				user.receive("You need to add a monitoring bot first.");
 			}
 			break;
 		case "/uncensoreWord":
-			if(commandParameters.size()<2) {
-				user.receive("Example: /uncensoreWord word");
+			if(monitorBot != null) {
+				if(commandParameters.size()<2) {
+					user.receive("Example: /uncensoreWord word");
+				}
+				else {
+					ExecuteUncensoreWordCommand(commandParameters.get(1));
+				}
 			}
 			else {
-				ExecuteUncensoreWordCommand(commandParameters.get(1));
+				user.receive("You need to add a monitoring bot first.");
 			}
 			break;
 		default:

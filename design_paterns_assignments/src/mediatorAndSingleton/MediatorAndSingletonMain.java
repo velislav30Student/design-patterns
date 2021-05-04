@@ -13,6 +13,8 @@ public class MediatorAndSingletonMain {
 		user2.send("I love cats");
 		user3.send("I love birds");
 		
+		user3.send("/banWord cat");
+		
 		user3.send("/addbot");
 		user3.send("/help");
 		user3.send("/addBot");
@@ -59,10 +61,13 @@ BirdLover received: I love cats
 BirdLover sends: I love birds
 DogLover received: I love birds
 CatLover received: I love birds
+BirdLover sends: /banWord cat
+BirdLover received: You need to add a monitoring bot first.
 BirdLover sends: /addbot
 BirdLover received: This command doesn't exist.
 BirdLover sends: /help
-Here's a list of available commands: /n- addBot
+Here's a list of available commands:
+- addBot
 - help
 - banWord word
 - unbanWord word
@@ -115,6 +120,7 @@ BirdLover received: The word 'censore' is now forbiden
 DogLover sends: You can't censore any word you want!!!
 BirdLover received: DogLover was banned for using the illegall word 'censore'
 BirdLover sends: ^U^
+
 		 */
 	}
 	
